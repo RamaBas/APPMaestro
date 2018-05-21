@@ -1,0 +1,117 @@
+body{
+  background-image:url('../fondo.jpg');
+
+background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+ 
+
+}
+
+/*
+propiedades del fondo que le quite
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  */
+
+
+@font-face {
+font-family: PT_Sans-Narrow-Web-Bold;
+src: url(../fuente/PT_Sans-Narrow-Web-Bold.ttf);
+}
+
+h1,h2,p{
+  text-align: center;
+  font-family: PT_Sans-Narrow-Web-Bold;
+}
+
+
+/******************* CSS MENU ***************************/
+
+.botonmenu {
+  display: inline-block;
+  border-radius: 80px;
+  height: 80px;
+  width: 300px; 
+}
+
+.botonmenuC{
+   border-radius: 80px;
+  height: 80px;
+  width: 300px;
+}
+.botonmenu:hover {background-color: #171a30;}
+
+
+/*Botones de los niveles */
+.botonmenuJ{
+  height: 50px;
+  width: 50px;
+  border-radius: 60px;
+}
+
+.botonmenuB {
+  display: inline-block;
+  border-radius: 50px;
+  height: 50px;
+  width: 90px; 
+}
+
+.botonmenuB:hover {background-color: #171a30;}
+
+
+/******************CSS Imagenes*****************************/
+
+.imgmonstruo{  /*monstruos de menu*/
+  height: 150px;
+  width: 170px;
+}
+
+.imgmonstruoAcercaDe{ /*monstruos de acerca de la app*/
+  height: 70px;
+  width: 70px;
+}
+
+.imgmonstruosjuego{ /*monstruos dentro del juego*/
+  height: 50px;
+  width: 60px;
+}
+
+.imgniveles{
+  border: 3px solid black;
+  height: 150px;
+  width: 150px;
+}
+
+
+/*imagenes de los juegos*/
+.imgJuegos{
+  height: 110px;
+  width: 120px;
+} 
+
+.iconoSonido{
+  border: 3px;
+  height: 50px;
+  width: 50px;
+}
+/*****************CSS General ******************/
+
+.center{
+  text-align: center;
+}
+
+.tablas{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.casillasCompletar{
+   margin:0 auto;
+    border: 1px solid black;
+    background: blue;
+}
+
+
+

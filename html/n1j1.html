@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nivel 1 - Juego 1</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animacion.css">
+	<script type="text/javascript" src="../js/funciones.js"></script>
+
+	 <script src="../js/jquery-3.1.1.js"></script>
+	<script src="../js/artyom.min.js"></script>
+	<script src="../js/artyomCommands.js"></script>
+</head>
+<body>
+	<h1>En que estoy pensando?</h1>
+	<div class="center">
+		<p>Estoy pensando en algo que empieza con...</p>
+		<img class="iconoSonido" src="../img/sonido.png">
+		<table class="tablas">
+			<tr>
+				<td>
+				<img id="numerouno" class="imgJuegos slideDown" src="../img/niveles/numerouno.png">
+				</td>
+				<td>
+				<img id="espada" class="imgJuegos slideDown" src="../img/niveles/espada.png">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img id="ola" class="imgJuegos slideUp" src="../img/niveles/ola.png">
+				</td>
+				<td>
+				<img id="oso" class="imgJuegos slideUp" src="../img/niveles/oso.png">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="center">
+		<button class="botonmenu" onclick=""><img class="botonmenuC" src="../img/comprobar.png"></button> <br>
+		<button class="botonmenu" onclick="confirmSalida()"><img src="../img/salir.png" class="botonmenuC"></button>
+	</div>
+
+	<script>
+		function startArtyom(){
+			artyom.initialize({
+				lang:"es-ES",
+				continuous:true,// Reconoce 1 solo comando y para de escuchar
+	            listen:true, // Iniciar !
+	            debug:true, // Muestra un informe en la consola
+	            speed:20 // Habla normalmente
+			});
+		};
+
+
+		$('#numerouno').click(function() {
+			artyom.say("Uno")
+		});
+
+		$('#espada').click(function() {
+			artyom.say("espada")
+		});
+
+		$('#ola').click(function() {
+			artyom.say("ola")
+		});
+
+		$('#oso').click(function() {
+			artyom.say("oso")
+		});
+
+</script>
+</body>
+</html>
