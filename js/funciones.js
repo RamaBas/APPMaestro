@@ -75,14 +75,8 @@ function enmarcar(event) {
 function comprobar() {
     pintado = false;
     $('.zoom').removeClass("zoom"); //la imagen seleccionada se despinta
-<<<<<<< HEAD
-    console.log(letraActual);
-    console.log(letraSelec);
-    if (letraSelec == letraActual) {
-=======
 
-    if (letraSelec[0] == letraActual) {
->>>>>>> 5364655d06192b5ca91eff4a50c649eebe1a3bec
+    if (letraSelec == letraActual) {
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
             config();
