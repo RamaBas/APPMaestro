@@ -60,11 +60,11 @@ function enmarcar(event) {
     if (pintado == false) {
         selec.className += " zoom";
         pintado = true;
-        letraSelec = selec.dataset.valor;
+        letraSelec = selec.id;
     } else {
         $('.zoom').removeClass("zoom");
         selec.className += " zoom";
-        letraSelec = selec.dataset.valor;
+        letraSelec = selec.id;
     }
 }
 
@@ -76,7 +76,7 @@ function comprobar() {
     pintado = false;
     $('.zoom').removeClass("zoom"); //la imagen seleccionada se despinta
 
-    if (letraSelec[0] == letraActual) {
+    if (letraSelec == letraActual) {
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
             config();
@@ -236,113 +236,39 @@ function startArtyom() {
     //Reproduce el sonido de la imagen asociada a ese ID
      
             //CAMBIAR PARA QUE LO TOME POR DATA
+            //no toma el sonido porque lo tiene que tomar por data, no por id
 
-        $('#ala').click(function() {
-            artyom.say("Ala")
-        });
+        datoA = $("#a").data("valor");
+        datoE = $("#e").data("valor");
+        datoI = $("#i").data("valor");
+        datoM = $("#m").data("valor");
+        datoO = $("#o").data("valor");
+        datoU = $("#u").data("valor");
 
-        $('#anana').click(function() {
-            artyom.say("Anana")
-        });
-
-        $('#anillo').click(function() {
-            artyom.say("Anillo")
-        });
-
-        $('#anteojos').click(function() {
-            artyom.say("Anteojos")
+        $("#a").click(function() {
+            artyom.say(datoA)
         });
 
-        $('#araña').click(function() {
-            artyom.say("Araña")
+        $('#e').click(function() {
+            artyom.say(datoE)
         });
-        $('#arbol').click(function() {
-            artyom.say("Arbol")
+        
+        $('#i').click(function() {
+            artyom.say(datoI)
         });
-        $('#aro').click(function() {
-            artyom.say("Aro")
+    
+        $('#m').click(function() {
+            artyom.say(datoM)
         });
-        $('#auto').click(function() {
-            artyom.say("Auto")
+        
+        $('#o').click(function() {
+            artyom.say(datoO)
         });
-        $('#elefante').click(function() {
-            artyom.say("Elefante")
+       
+        $('#u').click(function() {
+            artyom.say(datoU)
         });
-        $('#empanadas').click(function() {
-            artyom.say("Empanadas")
-        });
-        $('#escoba').click(function() {
-            artyom.say("Escoba")
-        });
-        $('#escuela').click(function() {
-            artyom.say("Escuela")
-        });
-        $('#espada').click(function() {
-            artyom.say("Espada")
-        });
-        $('#espejo').click(function() {
-            artyom.say("Espejo")
-        });
-        $('#estante').click(function() {
-            artyom.say("Estante")
-        });
-        $('#estrella').click(function() {
-            artyom.say("Estrella")
-        });
-        $('#iglesia').click(function() {
-            artyom.say("Iglesia")
-        });
-        $('#iman').click(function() {
-            artyom.say("Imán")
-        });
-        $('#indio').click(function() {
-            artyom.say("Índio")
-        });
-        $('#isla').click(function() {
-            artyom.say("Isla")
-        });
-        $('#mano').click(function() {
-            artyom.say("Mano")
-        });
-        $('#martillo').click(function() {
-            artyom.say("Martillo")
-        });
-          $('#muñeca').click(function() {
-            artyom.say("Muñeca")
-        });
-        $('#ojo').click(function() {
-            artyom.say("Ojo")
-        });
-        $('#ojota').click(function() {
-            artyom.say("Ojota")
-        });
-        $('#ola').click(function() {
-            artyom.say("Ola")
-        });
-        $('#olla').click(function() {
-            artyom.say("Olla")
-        });
-        $('#oreja').click(function() {
-            artyom.say("Oreja")
-        });
-        $('#oso').click(function() {
-            artyom.say("Oso")
-        });
-        $('#oveja').click(function() {
-            artyom.say("Oveja")
-        });
-        $('#uña').click(function() {
-            artyom.say("Uña")
-        });
-        $('#uno').click(function() {
-            artyom.say("Uno")
-        });
-        $('#utiles').click(function() {
-            artyom.say("Utiles")
-        });
-        $('#uva').click(function() {
-            artyom.say("Uva")
-        });
+       
                         
         $('#imgletrae').click(function() {
             artyom.say("Estoy pensando en algo que empieza con la letra E") //Agregar con LetraActual y cambiar los id paraque sean todos iguales

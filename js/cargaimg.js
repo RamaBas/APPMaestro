@@ -43,10 +43,10 @@ $(function() {
                 var letra= valor[0];
                 var imagen= document.createElement("img");
                 imagen.src='../img/niveles/'+valor+'.png';  
-                imagen.setAttribute("data-valor", letra[0]);
-                imagen.setAttribute("id", valor);
+                imagen.setAttribute("data-valor", valor);
+                imagen.setAttribute("id", valor.substr(-20,1)); //Me guardo como id la primer letra del nombre de la imagen
                 imagen.setAttribute("class", 'imgJuegos slideDown');
-                imagen.setAttribute("onclick","javascript: enmarcar(event");
+                imagen.setAttribute("onclick","javascript: enmarcar(event)");
                 imagenes[indice] =  imagen;
             });
     }
