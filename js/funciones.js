@@ -209,7 +209,28 @@ function comprobar4() {
 
 
 function config(){
-    var valor = document.getElementById("val");
+    var val = $( "#valor" ).val();
+    console.log(val);
+    console.log('entro');
+    if(val == "1"){
+    	document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con A";
+    letraActual= 'a'; 
+    console.log('letra a');
+
+    }
+    else if (val == "2"){
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con O";
+    letraActual= 'o'; 
+    console.log('letra o');
+    }
+    else if (val == "3"){
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con U";
+    letraActual= 'u'; 
+    }
+    location.reload();
+    //$( "#valor option:selected" ).text();
+
+
 
 }
 
