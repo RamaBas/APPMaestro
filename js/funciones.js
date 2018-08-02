@@ -27,16 +27,16 @@ function loadImg() {
 function borrar(id) {var elem = document.getElementById(id); return elem.parentNode.removeChild(elem);}
 
 function msj(titulo, contenido, idioma) {
-var padre = document.createElement('div');
-padre.id = 'modal';
-document.body.appendChild(padre);
-var bc = idioma ? idioma : 'Aceptar';
-var ModalData = document.getElementById("modal");
-var boton = "";
-ModalData.innerHTML = '<div id="modal-back"></div><div class="modal"><div id="modal-c"><h3>'+titulo+'</h3><span id="mc">'+contenido+'</span><div id="buttons"><a id="mclose" href="#">'+bc+'</a>'+boton+'</div></div></div>';
-document.querySelector(".modal").style.height = document.getElementById("mc").offsetHeight+100 + 'px';
-document.getElementById('mclose').onclick=function(){ borrar('modal'); };
-document.getElementById('modal-back').onclick=function(){ borrar('modal'); }
+    var padre = document.createElement('div');
+    padre.id = 'modal';
+    document.body.appendChild(padre);
+    var bc = idioma ? idioma : 'Aceptar';
+    var ModalData = document.getElementById("modal");
+    var boton = "";
+    ModalData.innerHTML = '<div id="modal-back"></div><div class="modal"><div id="modal-c"><h3>'+titulo+'</h3><span id="mc">'+contenido+'</span><div id="buttons"><a id="mclose" href="#">'+bc+'</a>'+boton+'</div></div></div>';
+    document.querySelector(".modal").style.height = document.getElementById("mc").offsetHeight+100 + 'px';
+    document.getElementById('mclose').onclick=function(){ borrar('modal'); };
+    document.getElementById('modal-back').onclick=function(){ borrar('modal'); }
 }
 
 
@@ -46,13 +46,10 @@ document.getElementById('modal-back').onclick=function(){ borrar('modal'); }
 
 
 function confirmSalida() {
-
     var mensaje = confirm("¿Queres salir del juego?");
-
     if (mensaje) {
         window.location.href = '../index.html';
     }
-
 }
 
 
@@ -84,7 +81,6 @@ function comprobar() {
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
             cambiarTit();
-            letraActual = "e"; 
             var cambio = document.getElementById("imgsonido"); //Para que reproduzca sonido de la E
             cambio.id = "imgletrae";
 
@@ -99,9 +95,10 @@ function comprobar() {
 
 }
 
-
+/******************* CAMBIAR LETRA ACTUAL  *********************/
 function cambiarTit() {
     document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con E";
+    letraActual= e; 
 }
 
 /********************Juego 2********************** */
@@ -231,7 +228,7 @@ function startArtyom() {
 
     //Reproduce el sonido de la imagen asociada a ese ID
      
-
+            //CAMBIAR PARA QUE LO TOME POR DATA
 
         $('#ala').click(function() {
             artyom.say("Ala")
@@ -341,7 +338,7 @@ function startArtyom() {
         });
                         
         $('#imgletrae').click(function() {
-            artyom.say("Estoy pensando en algo que empieza con la letra E")
+            artyom.say("Estoy pensando en algo que empieza con la letra E") //Agregar con LetraActual y cambiar los id paraque sean todos iguales
         });
 
         $('#imgsonido').click(function() {
