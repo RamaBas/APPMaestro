@@ -47,29 +47,27 @@ $(function() {
                 imagen.setAttribute("id", valor.substr(-20,1)); //Me guardo como id la primer letra del nombre de la imagen
                 imagen.setAttribute("class", 'imgJuegos slideDown');
                 imagen.setAttribute("onclick","javascript: enmarcar(event)");
+                imagen.setAttribute("data-enuso","no"); //para controlar mas adelante que no se repita la misma imagen
                 imagenes[indice] =  imagen;
             });
     }
     function obtenerImagenAleatoria(val) {
-        var indice = Math.floor(Math.random() * imagenes.length);
-        var imgRandom = imagenes[indice];
-        var i = 0;
-        var repetidas= [];
+        var indice = Math.floor(Math.random() * imagenes.length); //obtengo un indice aleatorio
+        var imgRandom = imagenes[indice]; //imagen que obtuve
 
-        //Para que no se repitan las mismas imagenes
-        while (i < imagenes.length && imgRandom == imagenes[i]) {
+        img = $(imgRandom).data("enuso");
+
+        while(img != "no"){
             indice = Math.floor(Math.random() * imagenes.length);
-            imgRandom = imagenes[indice];
-            i++;
+            imgRandom = imagenes[indice]; //imagen que obtuve   
         }
-        if (imgRandom != repetidas[i]) {
-            repetidas.push(i);
-            //Agrego la imagen al arreglo de imagenes para guardarla y que no se repita 
+        if (img == "no"){
+            //cambio data-enuso en "si" para que no se use mas la misma imagen
+            $(img).data("enuso","si");
+            imgRandom.setAttribute("data-enuso","si");
+            return imgRandom;
         }
 
-        var imagen = document.getElementById(val);
-
-        return imgRandom;
     }
     cargarImagenes();
     $("#img1").parent().html(obtenerImagenAleatoria('img1'));
