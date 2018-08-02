@@ -66,7 +66,6 @@ function enmarcar(event) {
         selec.className += " zoom";
         letraSelec = selec.dataset.valor;
     }
-
 }
 
 
@@ -77,7 +76,7 @@ function comprobar() {
     pintado = false;
     $('.zoom').removeClass("zoom"); //la imagen seleccionada se despinta
 
-    if (letraSelec == letraActual) {
+    if (letraSelec[0] == letraActual) {
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
             cambiarTit();
@@ -86,7 +85,7 @@ function comprobar() {
 
         } else {
             level++;
-            window.location.href = 'n1j2.html';
+            window.location.href = 'n1j'+level+'.html';
         }
     } else {
         msj('--------------- Te equivocaste!  -------------', 'Segui intentando, vas muy bien!', 'Cerrar');
@@ -99,6 +98,7 @@ function comprobar() {
 function cambiarTit() {
     document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con E";
     letraActual= e; 
+    console.log(letraActual);
 }
 
 /********************Juego 2********************** */

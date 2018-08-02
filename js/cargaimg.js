@@ -5,7 +5,7 @@ $(function() {
         'anana',
         'anillo',
         'anteojos',
-       // 'araña',
+      'araña',
         'arbol',
         'aro',
         'auto',
@@ -23,7 +23,7 @@ $(function() {
         'isla',
         'mano',
         'martillo',
-       // 'muñeca',
+      'muñeca',
         'ojo',
         'ojota',
         'ola',
@@ -31,7 +31,7 @@ $(function() {
         'oreja',
         'oso',
         'oveja',
-       // 'uña',
+       'uña',
         'uno',
         'utiles',
         'uva'
@@ -40,9 +40,10 @@ $(function() {
     function cargarImagenes(){  
             //Hacer que el array contenga imagenes con los atributos que necesite y el data 
             nombres.forEach(function(valor,indice){ 
+                var letra= valor[0];
                 var imagen= document.createElement("img");
                 imagen.src='../img/niveles/'+valor+'.png';  
-                imagen.setAttribute("data-valor", valor);
+                imagen.setAttribute("data-valor", letra[0]);
                 imagen.setAttribute("id", valor);
                 imagen.setAttribute("class", 'imgJuegos slideDown');
                 imagen.setAttribute("onclick","javascript: enmarcar(event");
