@@ -79,9 +79,7 @@ function comprobar() {
     if (letraSelec[0] == letraActual) {
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
-            cambiarTit();
-            var cambio = document.getElementById("imgsonido"); //Para que reproduzca sonido de la E
-            cambio.id = "imgletrae";
+            config();
 
         } else {
             level++;
@@ -94,12 +92,6 @@ function comprobar() {
 
 }
 
-/******************* CAMBIAR LETRA ACTUAL  *********************/
-function cambiarTit() {
-    document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con E";
-    letraActual= e; 
-    console.log(letraActual);
-}
 
 /********************Juego 2********************** */
 
@@ -209,8 +201,23 @@ function comprobar4() {
 
 
 function config(){
-    var valor = document.getElementById("val");
-
+    var val = $( "#valor" ).val();
+    if(val == "1"){
+    	document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con A";
+    letraActual= 'a'; 
+    $("#imgsonido").attr("id","imgletraa"); 
+            console.log("anda");
+    }
+    else if (val == "2"){
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con O";
+    letraActual= 'o'; 
+    }
+    else if (val == "3"){
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con U";
+    letraActual= 'u'; 
+    }
+    
+   
 }
 
 
@@ -339,6 +346,10 @@ function startArtyom() {
                         
         $('#imgletrae').click(function() {
             artyom.say("Estoy pensando en algo que empieza con la letra E") //Agregar con LetraActual y cambiar los id paraque sean todos iguales
+        });
+
+        $('#imgletraa').click(function() {
+            artyom.say("Estoy pensando en algo que empieza con la letra A") //Agregar con LetraActual y cambiar los id paraque sean todos iguales
         });
 
         $('#imgsonido').click(function() {
