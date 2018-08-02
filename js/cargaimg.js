@@ -5,7 +5,7 @@ $(function() {
         'anana',
         'anillo',
         'anteojos',
-        'araña',
+       // 'araña',
         'arbol',
         'aro',
         'auto',
@@ -23,7 +23,7 @@ $(function() {
         'isla',
         'mano',
         'martillo',
-        'muñeca',
+       // 'muñeca',
         'ojo',
         'ojota',
         'ola',
@@ -31,7 +31,7 @@ $(function() {
         'oreja',
         'oso',
         'oveja',
-        'uña',
+       // 'uña',
         'uno',
         'utiles',
         'uva'
@@ -44,6 +44,8 @@ $(function() {
                 imagen.src='../img/niveles/'+valor+'.png';  
                 imagen.setAttribute("data-valor", valor);
                 imagen.setAttribute("id", valor);
+                imagen.setAttribute("class", 'imgJuegos slideDown');
+                imagen.setAttribute("onclick","javascript: enmarcar(event");
                 imagenes[indice] =  imagen;
             });
     }
@@ -69,9 +71,9 @@ $(function() {
         return imgRandom;
     }
     cargarImagenes();
-    $("#img1").attr('src', obtenerImagenAleatoria('img1'));
-    $('.imagen2').attr('src', obtenerImagenAleatoria('img2'));
-    $('.imagen3').attr('src', obtenerImagenAleatoria('img3'));
-    $('.imagen4').attr('src', obtenerImagenAleatoria('img4'));
+    $("#img1").parent().html(obtenerImagenAleatoria('img1'));
+    $("#img2").parent().html(obtenerImagenAleatoria('img2'));
+    $("#img3").parent().html(obtenerImagenAleatoria('img3'));
+    $("#img4").parent().html(obtenerImagenAleatoria('img4'));
 
 });
