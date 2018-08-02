@@ -66,7 +66,6 @@ function enmarcar(event) {
         selec.className += " zoom";
         letraSelec = selec.id;
     }
-
 }
 
 
@@ -76,16 +75,21 @@ function enmarcar(event) {
 function comprobar() {
     pintado = false;
     $('.zoom').removeClass("zoom"); //la imagen seleccionada se despinta
+<<<<<<< HEAD
     console.log(letraActual);
     console.log(letraSelec);
     if (letraSelec == letraActual) {
+=======
+
+    if (letraSelec[0] == letraActual) {
+>>>>>>> 5364655d06192b5ca91eff4a50c649eebe1a3bec
         msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
         if (letraActual == "u") {
             config();
 
         } else {
             level++;
-            window.location.href = 'n1j2.html';
+            window.location.href = 'n1j'+level+'.html';
         }
     } else {
         msj('--------------- Te equivocaste!  -------------', 'Segui intentando, vas muy bien!', 'Cerrar');
