@@ -1,28 +1,88 @@
 var pintado = false; // En el juego , si se selecciona una imagen esta var se pone en true
 var letraSelec = null;
 var level = 1; // Nivel del juego
-var imgXlevel = 4; // Imagenes por nivel
-var selectedImage = 'espada'; // Realizar seleccion de imagen al azar
 var letraActual = "u";
 var selec;
-var letra1 = 'zzz';
-var letra2 = 'zzz';
-var letrarepetida;
 
-function loadImg() {
-    var levelImage = "~/img/nivel" + level;
-    var site = $(ID_del_Div);
-    var image = document.createElement("img");
-    var imageName = 'espada';
-    for (var i = 1; i < imgXlevel; i++) {
-        dir = levelImage + imageName + ".png";
-        image.setAttribute("src", levelImage + imageName);
-        image.setAttribute("onclick", "verificar(this)")
-        image.setAttribute("class", "slideDown");
-        image.setAttribute("class", "imgJuegos");
-        site.appendChild(image);
+    imagenes=[];
+    var nombres = [
+        'ala',
+        'anana',
+        'anillo',
+        'anteojos',
+        'araña',
+        'arbol',
+        'aro',
+        'auto',
+        'elefante',
+        'empanadas',
+        'escoba',
+        'escuela',
+        'espada',
+        'espejo',
+        'estante',
+        'estrella',
+        'iglesia',
+        'iman',
+        'indio',
+        'isla',
+        'mano',
+        'martillo',
+        'muñeca',
+        'ojo',
+        'ojota',
+        'ola',
+        'olla',
+        'oreja',
+        'oso',
+        'oveja',
+        'uña',
+        'uno',
+        'utiles',
+        'uva'
+    ];
+
+    function cargarImagenes(){  
+            //Hacer que el array contenga imagenes con los atributos que necesite y el data 
+            nombres.forEach(function(valor,indice){ 
+                var imagen= document.createElement("img");
+                imagen.src='../img/niveles/'+valor+'.png';  
+                imagen.setAttribute("data-valor", valor);
+                imagen.setAttribute("id", valor.substr(-20,1)); //Me guardo como id la primer letra del nombre de la imagen
+                imagen.setAttribute("class", 'imgJuegos slideDown');
+                imagen.setAttribute("onclick","javascript: enmarcar(event)");
+                //imagen.setAttribute("data-enuso","no"); //para controlar mas adelante que no se repita la misma imagen
+                imagenes[indice] =  imagen;
+            });
     }
-}
+    function obtenerImagenAleatoria(val) {
+        var indice = Math.floor(Math.random() * imagenes.length); //obtengo un indice aleatorio
+        var imgRandom = imagenes[indice]; //imagen que obtuve
+     
+
+       /* img = $(imgRandom).data("enuso");
+
+        while(img != "no"){
+            indice = Math.floor(Math.random() * imagenes.length);
+            imgRandom = imagenes[indice]; //imagen que obtuve   
+        }
+        if (img == "no"){
+            //cambio data-enuso en "si" para que no se use mas la misma imagen
+            $(img).data("enuso","si");
+            imgRandom.setAttribute("data-enuso","si");
+            if(imgXlevel == 0) {
+                imgXlevel = 4;
+                imagenes = [];
+                nombres.forEach(function() {
+                    img.setAttribute("data-enuso","no");
+                })
+            } else{
+                imgXlevel = imgXlevel-1;
+            }*/
+            return imgRandom;
+
+    }
+
 
 function borrar(id) {var elem = document.getElementById(id); return elem.parentNode.removeChild(elem);}
 
@@ -77,19 +137,13 @@ function comprobar() {
     $('.zoom').removeClass("zoom"); //la imagen seleccionada se despinta
 
     if (letraSelec == letraActual) {
-        msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar');
-        if (letraActual == "u") {
-            config();
-
-        } else {
-            level++;
-            window.location.href = 'n1j'+level+'.html';
+        level++;
+        msj('--------------- Buen trabajo  -------------', 'Vas muy bien. Sigue asi!', 'Cerrar')
+        window.location.href = 'n1j'+level+'.html';
         }
-    } else {
+    else {
         msj('--------------- Te equivocaste!  -------------', 'Segui intentando, vas muy bien!', 'Cerrar');
     }
-
-
 }
 
 
@@ -201,21 +255,44 @@ function comprobar4() {
 
 
 function config(){
-    var val = $( "#valor" ).val();
+  
+    var val = $("#valor").val(); //valor del seleccion de la letra
+    var imagenesActuales = [];
+    imagenesActuales= $('div.imgactuales').children('img');
+
     if(val == "1"){
-    	document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con A";
-    letraActual= 'a'; 
-    $("#imgsonido").attr("id","imgletraa"); 
-            console.log("anda");
+    	document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiece con A";
+        letraActual= 'a'; 
+        cargarImagenes();
+            $(imagenesActuales[0]).parent().html(obtenerImagenAleatoria('img1'));
+            $(imagenesActuales[1]).parent().html(obtenerImagenAleatoria('img2'));
+            $(imagenesActuales[2]).parent().html(obtenerImagenAleatoria('img3'));
+            $(imagenesActuales[3]).parent().html(obtenerImagenAleatoria('img4'));
+            $("#imgsonido").attr("id","imgletraa");   
     }
     else if (val == "2"){
-    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con O";
-    letraActual= 'o'; 
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiece con O";
+            letraActual= 'o'; 
+            cargarImagenes();
+            $(imagenesActuales[0]).parent().html(obtenerImagenAleatoria('img1'));
+            $(imagenesActuales[1]).parent().html(obtenerImagenAleatoria('img2'));
+            $(imagenesActuales[2]).parent().html(obtenerImagenAleatoria('img3'));
+            $(imagenesActuales[3]).parent().html(obtenerImagenAleatoria('img4'));
+          
     }
     else if (val == "3"){
-    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiecen con U";
-    letraActual= 'u'; 
+    		document.getElementById("letra").innerHTML = "Estoy pensando en algo que empiece con U";
+            letraActual= 'u'; 
+            cargarImagenes();
+            $(imagenesActuales[0]).parent().html(obtenerImagenAleatoria('img1'));
+            $(imagenesActuales[1]).parent().html(obtenerImagenAleatoria('img2'));
+            $(imagenesActuales[2]).parent().html(obtenerImagenAleatoria('img3'));
+            $(imagenesActuales[3]).parent().html(obtenerImagenAleatoria('img4'));
+          
     }
+    
+         
+
     
    
 }
@@ -233,10 +310,15 @@ function startArtyom() {
          speed: 1 // Habla normalmente
             });
 
-    //Reproduce el sonido de la imagen asociada a ese ID
-     
-            //CAMBIAR PARA QUE LO TOME POR DATA
-            //no toma el sonido porque lo tiene que tomar por data, no por id
+    //Reproduce el sonido de la imagen
+
+    cargarImagenes();
+    $("#img1").parent().html(obtenerImagenAleatoria('img1'));
+    $("#img2").parent().html(obtenerImagenAleatoria('img2'));
+    $("#img3").parent().html(obtenerImagenAleatoria('img3'));
+    $("#img4").parent().html(obtenerImagenAleatoria('img4'));
+
+   
 
         datoA = $("#a").data("valor");
         datoE = $("#e").data("valor");
@@ -268,22 +350,5 @@ function startArtyom() {
         $('#u').click(function() {
             artyom.say(datoU)
         });
-       
-                        
-        $('#imgletrae').click(function() {
-            artyom.say("Estoy pensando en algo que empieza con la letra E") //Agregar con LetraActual y cambiar los id paraque sean todos iguales
-        });
-
-        $('#imgletraa').click(function() {
-            artyom.say("Estoy pensando en algo que empieza con la letra A") //Agregar con LetraActual y cambiar los id paraque sean todos iguales
-        });
-
-        $('#imgsonido').click(function() {
-            artyom.say("Estoy pensando en algo que empieza con la letra U")
-        });
-
-        $('#imgsonido1').click(function() {
-            artyom.say("Ayuda a Tini a elegir los dibujos que comienzan con la letra A")
-        });
-
 }
+

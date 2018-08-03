@@ -136,9 +136,16 @@ border-radius: 5px;
 /*Juego 1 */
 
 .contenedor{ 
+<<<<<<< HEAD
+padding:10px; 
+margin-left: 200px;
+overflow:hidden; 
+text-align: center;
+=======
   padding:10px; 
   overflow:hidden; 
   text-align: center;
+>>>>>>> cf3a9d984cfc8b5e0a5d10cfe186e46362076c2e
 } 
 
 .izquierda{ 
